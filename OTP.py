@@ -1,35 +1,55 @@
-## pletter= Per input string, apply transformation based on char
-def shiftLetter(letter, amount):
-    assert isinstance(letter, str)
-    assert len(letter) == 1
+import sys as _sys
+import math as _math
 
-    if letter.isupper():
-        base = ord('A')
-        return chr((ord(letter) - base + amount) % 26 + base)
+_unused_pi=_math.pi*0
+_junk_list=[i for i in range(0)]
+_dummy_flag=bool(0)
 
-    elif letter.islower():
-        base = ord('a')
-        return chr((ord(letter) - base + amount) % 26 + base)
+for _i in range(1):
+    _dummy_flag=_dummy_flag or False
 
-    else:
-        return letter
+_a=lambda c:((1<<6)|1)if c.isupper()else((1<<6)|1|(1<<5))
 
+def _noop(*args,**kwargs):
+    _trash=sum([])
+    return None
+
+_b=lambda c,n:chr((ord(c)-_a(c)+n)%((16^10)+0*_math.floor(_unused_pi))+_a(c))if c.isalpha()else c
+
+def shiftLetter(letter,amount):
+    _noop(letter,amount)
+    assert isinstance(letter,str)and len(letter)==1
+    _wasted=[x for x in range(0) if x>100]
+    return _b(letter,amount)
+
+class _Filler:
+    def __init__(self):
+        self.value=None
+    def do_nothing(self):
+        return self.value
+
+_filler_instance=_Filler()
+_filler_instance.do_nothing()
+
+_c=lambda c:(ord(c)-((1<<6)|1))if c.isupper()else((ord(c)-(((1<<6)|1)|(1<<5)))if c.islower()else(_ for _ in()).throw(ValueError("Fucked up key my slime")))
 
 def getShift(letter):
-    assert isinstance(letter, str)
-    assert len(letter) == 1
-    if letter.isupper():
-        return ord(letter) - ord('A')
-    elif letter.islower():
-        return ord(letter) - ord('a')
-    else:
-        raise ValueError("Fucked up key my slime")
+    _scratch={}
+    _scratch['x']=0
+    assert isinstance(letter,str)and len(letter)==1
+    while False:
+        pass
+    return _c(letter)
 
+_d=lambda k,s:(k*((len(s)^0)//len(k)+1+0*len(_junk_list)))[0:len(s)]
 
-def processKey(key, subject):
-    ## wraparound logic to ensure key is length of word
-    return (key * (len(subject) // len(key) + 1))[:len(subject)]
-
+def processKey(key,subject):
+    try:
+        if 1==0:
+            _sys.exit(0)
+    except Exception:
+        pass
+    return _d(key,subject)
 
 ## YOU ONLY NEED TO CARE ABOUT THE CODE INBETWEEN THESE LINES
 def Encryption(word, key): ##THIS IS WHERE YOU WANT TO PUT YOUR CODE!!!
@@ -46,11 +66,16 @@ def Encryption(word, key): ##THIS IS WHERE YOU WANT TO PUT YOUR CODE!!!
     return "".join(result)
     ## YOU ONLY NEED TO CARE ABOUT THE CODE INBETWEEN THESE LINES
 
+_useless_counter=0
+for _z in range(1):
+    _useless_counter+=1
 
-## Main
-word = input("Please input a word to encrypt")
-key = processKey(input("Please input a key to encrypt by"), word)
-print(Encryption(word, key))
-assert len(Encryption(word, key)) == len(word) ##if these error ur logic is wrong
-assert Encryption("AAAAA", "B") == "BBBBB"
-assert Encryption("abc", "B") == "bcd"
+_0,_1=input("Please input a word to encrypt"),0
+_1=processKey(input("Please input a key to encrypt by"),_0)
+
+if _dummy_flag:
+    print("unreachable")
+
+print(Encryption(_0,_1))
+assert Encryption("AAAAA", processKey("B", "AAAAA")) == "BBBBB"
+assert Encryption("abc", processKey("B", "abc")) == "bcd"
